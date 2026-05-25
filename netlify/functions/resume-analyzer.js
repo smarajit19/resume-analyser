@@ -1,4 +1,4 @@
-const DEFAULT_WEBHOOK_URL = 'https://smarajit94.app.n8n.cloud/webhook-test/resume-analyzer'
+const DEFAULT_WEBHOOK_URL = 'https://smarajit94.app.n8n.cloud/webhook/resume-analyzer'
 
 exports.handler = async (event) => {
   const corsHeaders = {
@@ -23,7 +23,7 @@ exports.handler = async (event) => {
     }
   }
 
-  const webhookUrl = process.env.N8N_WEBHOOK_URL || process.env.VITE_API_URL || DEFAULT_WEBHOOK_URL
+  const webhookUrl = process.env.N8N_WEBHOOK_URL || DEFAULT_WEBHOOK_URL
   const contentType = event.headers['content-type'] || event.headers['Content-Type']
   const body = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64') : event.body
 

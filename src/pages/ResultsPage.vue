@@ -45,7 +45,7 @@ async function exportPdf() {
         <h1 class="text-3xl sm:text-4xl font-extrabold mt-2">Resume Analysis</h1>
         <p class="text-slate-500 dark:text-slate-400">Detailed insights for {{ store.form.firstName }} {{ store.form.lastName }}</p>
       </div>
-      <div class="flex gap-2">
+      <div v-if="store.result" class="flex gap-2">
         <button @click="copyJson" class="btn-ghost"><Copy class="w-4 h-4" /> Copy</button>
         <button @click="exportPdf" class="btn-primary !py-2.5"><Download class="w-4 h-4" /> Export PDF</button>
       </div>

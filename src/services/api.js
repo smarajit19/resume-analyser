@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://smarajit94.app.n8n.cloud/webhook-test/resume-analyzer'
+const API_URL = import.meta.env.PROD
+  ? '/.netlify/functions/resume-analyzer'
+  : import.meta.env.VITE_API_URL || '/.netlify/functions/resume-analyzer'
 
 const client = axios.create({
   timeout: 90000,
